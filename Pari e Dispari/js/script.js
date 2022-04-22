@@ -10,11 +10,11 @@ const userChoise = prompt("Scegli pari o dispari");
 console.log(userChoise);
 
 // Richiamo la funzione e genero il numero per l'utente
-const userNumber = generateNum(Number);
+const userNumber = getRndInteger(1, 5);
 console.log(userNumber);
 
 // Richiamo la funzione e genero il numero per il computer
-const computerNumber = generateNum(Number);
+const computerNumber = getRndInteger(1, 5);
 console.log(computerNumber);
 
 // Sommo i numeri generati
@@ -39,15 +39,27 @@ if (userChoise == oddOrEven(sum)) {
 
 // Creo una funzione che genera un numero da 1 a 5
 
-function generateNum(Number) {
 
-    num = Math.round(Math.random()*4 + 1);
 
-    return num;
+/**
+ * Description
+ * @param {Number} min --> valore minimo per generare il numero
+ * @param {Number} max --> valore massimo per generare il numero
+ * @returns {Number} --> Numero generato casualmente tra min e max
+ */
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
 }
+
 
 // Creo una funzione che divide la somma dei numeri e in base al resto 
 // stabilisce se la funzione è pari o dispari
+/**
+ * Description
+ * @param {Number} sum --> Prende la somma dei due numeri casuali generati
+ * @returns {String} --> Restituisce come risultato se il numero è pari o dispari
+ */
+
 function oddOrEven(sum) {
 
     if (sum % 2 == 0) {
